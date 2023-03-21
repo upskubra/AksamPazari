@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tr_customer">Müşteriyim</string>
+    <string name="tr_restaurant">Restorantım</string>
+    <string name="email">e-mail</string>
+    <string name="password">parola</string>
+</resources>

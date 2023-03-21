@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AksamPazari</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_app">Akşam Pazarı</string>
+    <string name="tr_customer">Müşteriyim</string>
+    <string name="tr_restaurant">Restorantım</string>
+    <string name="email">e-mail</string>
+    <string name="password">parola</string>
+</resources>
