@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,9 +13,9 @@
             android:id="@+id/iv_profile_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="10dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="20dp"
             android:contentDescription="TODO"
-            android:src="#40FE7240"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -23,52 +23,50 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_feed_item_title"
             android:layout_width="0dp"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="5dp"
             android:text="Title"
             android:textAlignment="center"
             android:textColor="@color/the_black"
-            app:layout_constraintBottom_toTopOf="@id/tv_feed_item_description"
             app:layout_constraintStart_toEndOf="@id/iv_profile_image"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@id/iv_profile_image">
 
         </com.google.android.material.textview.MaterialTextView>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_feed_item_resturan_name"
+            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_feed_item_title"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"            android:text="Restaurant Name"
+            android:textAlignment="viewStart"
+            android:textSize="12dp"
+            android:textColor="@color/the_black"
+            app:layout_constraintStart_toEndOf="@id/iv_profile_image">
+
+        </com.google.android.material.textview.MaterialTextView>
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_feed_item_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="5dp"            android:text="Description"
-            android:textAlignment="center"
-            android:textColor="@color/the_black"
-            app:layout_constraintBottom_toTopOf="@id/tv_feed_item_resturan_name"
-            app:layout_constraintStart_toEndOf="@id/iv_profile_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_feed_item_title">
+            android:text="Description"
+            app:layout_constraintBottom_toTopOf="@id/tv_feed_item_price"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="@id/tv_feed_item_price"
+            android:textColor="@color/the_black">
 
         </com.google.android.material.textview.MaterialTextView>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_feed_item_resturan_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="5dp"            android:text="Restaurant Name"
-            android:textAlignment="center"
-            android:textColor="@color/the_black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_profile_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_feed_item_description">
-
-        </com.google.android.material.textview.MaterialTextView>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_feed_item_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="20dp"
             android:text="45 TL"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -79,8 +77,35 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </com.google.android.material.textview.MaterialTextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/time"
+            android:src="@drawable/stopwatch"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/time"
+            android:layout_height="wrap_content">
+
+        </ImageView>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="time"
+            android:textAlignment="center"
+            android:textColor="@color/the_black"
+            app:layout_constraintStart_toEndOf="@id/iv_profile_image"
+            app:layout_constraintBottom_toBottomOf="@id/iv_profile_image"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textview.MaterialTextView>
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/the_orange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="20sp"
+            android:layout_height="1dp">
+        </View>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView >

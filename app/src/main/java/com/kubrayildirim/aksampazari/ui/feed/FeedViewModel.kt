@@ -3,9 +3,10 @@ package com.kubrayildirim.aksampazari.ui.feed
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.Timestamp
 import com.kubrayildirim.aksampazari.data.firebase.FirebaseRepository
-import com.kubrayildirim.aksampazari.util.NetworkControl
 import com.kubrayildirim.aksampazari.data.model.Product
+import com.kubrayildirim.aksampazari.util.NetworkControl
 import com.kubrayildirim.aksampazari.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -17,7 +18,7 @@ class FeedViewModel @Inject constructor(
 ) : ViewModel() {
     private val productData = MutableLiveData<Resource<List<Product>>>()
 
-    fun fetchProduct() : LiveData<Resource<List<Product>>> {
+    fun fetchProduct(): LiveData<Resource<List<Product>>> {
         if (networkControl.isConnected()) {
             productData.postValue(Resource.loading(null))
             repository.fetchProduct().addOnCompleteListener { task ->
@@ -29,6 +30,7 @@ class FeedViewModel @Inject constructor(
                             it.data?.getValue("name").toString(),
                             it.data?.getValue("restaurant_name").toString(),
                             it.data?.getValue("photo_url").toString(),
+                            it.data?.getValue("time") as Timestamp,
                         )
                     }
                     productData.postValue(Resource.success(product!!))
