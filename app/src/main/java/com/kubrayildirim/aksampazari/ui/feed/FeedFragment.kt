@@ -34,8 +34,7 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -46,29 +45,31 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setBottomNavigation()
+        fetchProduct()
 
-        viewModel.fetchProduct().observe(viewLifecycleOwner){
+    }
+
+    fun fetchProduct() {
+        viewModel.fetchProduct().observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
                     it.data?.let { productList -> setRecyclerView(productList) }
                 }
                 Status.ERROR -> {
-                    Snackbar.make(view, it.message.toString(), Snackbar.LENGTH_LONG).show()
+                    view?.let { it1 -> Snackbar.make(it1, it.message.toString(), Snackbar.LENGTH_LONG).show() }
                 }
                 Status.LOADING -> {
-                    Snackbar.make(view, "Loading", Snackbar.LENGTH_LONG).show()
+                    view?.let { it1 -> Snackbar.make(it1, "Loading", Snackbar.LENGTH_LONG).show() }
                 }
             }
         }
-
-
     }
 
     private fun setRecyclerView(list : List<Product>){
         binding.rvFeed.adapter = FeedAdapter(list)
     }
 
-    fun setBottomNavigation(){
+    private fun setBottomNavigation() {
         binding.bnbFeed.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.feedFragment -> {
